@@ -1,0 +1,153 @@
+{
+    "your_role": "Software Engineer",
+    "main_skills": "Angular,  NodeJS",
+    "exp_start_date": "01-10-2022",
+    "your_name": "Your Name",
+    "about_me": "Your job title with <$exp_long$> ....  creative and adaptive systems to meet present and future requirements",
+    "objective": "To work in an organization which provides me with ample opportunities to make significant contributions",
+    "skills": [
+        {
+            "Front End": [
+                "Angular",
+                "Angular Material",
+                "Ionic",
+                "Capacitor",
+                "Cordova",
+                "TypeScript",
+                "SCSS",
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "JSON",
+                "RxJs"
+            ]
+        },
+        {
+            "Back End": [
+                "NodeJS",
+                "PostgreSQL",
+                "Rest API"
+            ]
+        },
+        {
+            "Tools": [
+                "GIT",
+                "Android Studio",
+                "XCode",
+                "Google Play Console",
+                "Apple Store Connect",
+                "Firebase",
+                "Canva",
+                "MS Office",
+                "PhotoShop"
+            ]
+        }
+    ],
+    "work": [
+        {
+            "role": "Graphics Designer",
+            "firm": "XXXX Technologies, City, Country",
+            "start_end": "2021 - 2022"
+        },
+        {
+            "role": "Graduate Engineering Trainee",
+            "firm": "XXXX Software Pvt. Ltd., City, Country",
+            "start_end": "2022 - 2024"
+        },
+        {
+            "role": "Software Engineer",
+            "firm": "XXXX Softwares, City, Country",
+            "start_end": "2024 - Present"
+        }
+    ],
+    "education": [
+        {
+            "class": "Class X",
+            "institution": "XXXX Matric HSS, City, Country",
+            "start_end": "2014 - 2015"
+        },
+        {
+            "class": "Class XII",
+            "institution": "XXXX Matric HSS, City, Country",
+            "start_end": "2016 - 2017"
+        },
+        {
+            "class": "XXX and XXX Engg.",
+            "institution": "XXXX Institute, City, Country",
+            "start_end": "2017 - 2021"
+        }
+    ],
+    "projects": [
+        {
+            "name": "Project Name 1",
+            "url": "https://www.google.com/",
+            "highlights": [
+                "Built hybrid mobile application for XXXX",
+                "Published to Google Play Store and maintained version control",
+                "Designed and developed Administrator web application",
+                "Vulnerability Assessment & Penetration Testing and Data encryption in transit",
+                "Fullstack Developer for XXXXX Web Application"
+            ]
+        },
+        {
+            "name": "Project Name 2",
+            "url": "https://www.google.com/",
+            "highlights": [
+                "Designed brochures, banners and signs, aligning with brand mission and values",
+                "Produced complex illustrations and animations satisfying client's brief"
+            ]
+        }
+    ],
+    "socials": [
+        {
+            "medium": "Telegram",
+            "msg": "click to chat",
+            "url": "https://t.me/your_id",
+            "icon": "fa-brands fa-telegram"
+        },
+        {
+            "medium": "Gmail",
+            "msg": "your Gmail ID",
+            "url": "mailto:your_gmail_ID",
+            "icon": "fa fa-envelope"
+        },
+        {
+            "medium": "Email",
+            "msg": "your alternate email",
+            "url": "mailto:your_alternate_mail_ID",
+            "icon": "fa-regular fa-envelope"
+        },
+        {
+            "medium": "Whatsapp",
+            "msg": "click to chat",
+            "url": "https://wa.me/country_code_and_number",
+            "icon": "fa-brands fa-whatsapp"
+        },
+        {
+            "medium": "Location",
+            "msg": "City, Country",
+            "icon": "fa-solid fa-location-dot"
+        }
+    ],
+    "footer": {
+        "name": "Your Name",
+        "position": "Software Engineer",
+        "socials": [
+            {
+                "icon": "fa-brands fa-x-twitter",
+                "url": "https://x.com/yourID"
+            },
+            {
+                "icon": "fa-brands fa-instagram",
+                "url": "https://www.instagram.com/your_user_name"
+            },
+            {
+                "icon": "fa-brands fa-linkedin-in",
+                "url": "https://www.linkedin.com/in/your_url"
+            }
+        ],
+        "stack_overflow": "https://stackoverflow.com/users/your_endpoint",
+        "github": "https://github.com/your_id"
+    },
+    "last_updated": "2025"
+}

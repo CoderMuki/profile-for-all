@@ -1,0 +1,200 @@
+<div class="main-div">
+    <div class="switch" (click)="changetheme()">
+        <img *ngIf="offBulb" class="bulb" src="../../assets/icons/off-bulb.svg" alt="theme_switch_dark">
+        <img *ngIf="!offBulb" class="bulb" src="../../assets/icons/on-bulb.svg" alt="theme_switch_bright">
+    </div>
+    <div id="home"></div>
+    <div class="image-container">
+        <div class="my-image">
+        </div>
+        <div class="side-out1 sides">
+            <div>
+                <p>{{myData?.your_role}}</p>
+            </div>
+        </div>
+        <div class="side-out2 sides">
+            <div>
+                <p>{{myData?.main_skills}}</p>
+            </div>
+        </div>
+        <div class="side-out3 sides">
+            <div>
+                <p>{{this.expShort()}} Yrs</p>
+            </div>
+        </div>
+    </div>
+    <div id=nameDiv class="name-div">
+        <p class="name">{{myData?.your_name}}</p>
+    </div>
+    <div id="about"></div>
+    <div class="about-div">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p class="">{{aboutWithExp()}}</p>
+        </div>
+    </div>
+    <div class="obj-div">
+        <div class="obj-text">
+            <h2>Career Objective</h2>
+            <p>{{myData?.objective}}</p>
+        </div>
+    </div>
+    <div id="skills"></div>
+    <div class="skills-div">
+        <div id="skills-header">
+            <h2>Skills</h2>
+        </div>
+        <div class="skills-body">
+            <div class="skl-body-main mgb-1-5" *ngFor="let skill of myData?.skills; let i = index">
+                <span>
+                    <p>{{returnKey(skill)}}</p>
+                    <p><img id="head-icons2" [src]="imageData?.skills?.[i]" alt="skill icon"></p>
+                </span>
+                <div class="chips">
+                    <div class="chip" *ngFor="let skillVal of returnValue(skill)">{{skillVal}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="exp"></div>
+    <div class="experience-div">
+        <div id="exp-header">
+            <h2>Experience</h2>
+        </div>
+        <div class="exp-body">
+            <h3 class="education" (click)="showEdu=true"><img id="grad-cap" src="../../assets/icons/grad-cap.svg"><span
+                    [ngClass]="showEdu ? 'exp-select' : ''">Education</span>
+            </h3>
+            <h3 class="work" (click)="showEdu=false"><img id="work-bag" src="../../assets/icons/work-bag.svg"><span
+                    [ngClass]="!showEdu ? 'exp-select' : ''">Work</span>
+            </h3>
+        </div>
+        <div class="exp-details">
+            <ng-container *ngIf="showEdu; then education else work"></ng-container>
+        </div>
+    </div>
+    <div class="projects-div">
+        <div id="proj-header">
+            <h2>Projects</h2>
+        </div>
+    </div>
+    <div class="projects-div">
+        <div class="proj-body" *ngFor="let project of myData?.projects">
+            <p id="proj-name">{{project?.name}} &nbsp;<i class="fa fa-external-link-square"
+                    (click)="urlOpen(project?.url)"></i></p>
+            <ul>
+                <li *ngFor="let highlight of project?.highlights">{{highlight}}</li>
+            </ul>
+        </div>
+    </div>
+    <div id="contact"></div>
+    <div class="contact-div">
+        <div id="cont-header">
+            <h2>Contact</h2>
+        </div>
+        <div class="contact-body">
+            <div class="con-types" *ngFor="let social of myData?.socials; let i = index">
+                <div class="cont1" (click)="urlOpen(social?.url)">
+                    <div class="icon"><i [class]="social?.icon"></i></div>
+                    <div class="contact">
+                        <p class="con-type">{{social?.medium}}</p>
+                        <p class="con-val">{{social?.msg}}</p>
+                    </div>
+                </div>
+                <div class="v-line" *ngIf="(myData?.socials?.length !== i+1)"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-div">
+        <div class="footer-1">
+            <div class="foot-name">
+                <span>{{myData?.footer?.name}}</span>
+                <p>{{myData?.footer?.position}}</p>
+            </div>
+            <div class="socials">
+                <div (click)="urlOpen(oSocial?.url)" *ngFor="let oSocial of myData?.footer?.socials"><i
+                        [class]="oSocial?.icon"></i></div>
+            </div>
+        </div>
+        <div class="footer-1-5">
+            <p id="checkout">Also Check out :</p>
+            <div class="stackoverflow" (click)="urlOpen(myData?.footer?.stack_overflow)">
+                <div>
+                    <i class="fa-brands fa-stack-overflow"></i>
+                    <p>Stack Overflow</p>
+                </div>
+            </div>
+            <div class="github" (click)="urlOpen(myData?.footer?.github)">
+                <div>
+                    <i class="fa-brands fa-github"></i>
+                    <p>GitHub</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-2">
+            <div><i class="fa-solid fa-copyright"></i>
+                <p>{{myData?.footer?.name}}. All rights reserved. {{myData?.last_updated}}</p>
+            </div>
+        </div>
+        <div class="site-info" (mouseenter)="showsiteInfo=true" (mouseleave)="showsiteInfo=false"
+            (touchStart)="showsiteInfo=true" (touchEnd)="showsiteInfo=false" (click)="showsiteInfo=!showsiteInfo">
+            <i class="fa-solid fa-circle-info"></i>
+            <ng-container *ngIf="showsiteInfo; then siteInfo"></ng-container>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #education>
+    <div class="grid-div edu-div" *ngFor="let education of myData?.education; let i = index" [id]="'education'+(i+1)">
+        <div>
+            <h3>
+                {{education?.class}}
+            </h3>
+            <span class="med-col">{{education?.institution}}</span>
+            <div class="med-col">
+                {{education?.start_end}}
+            </div>
+        </div>
+        <div>
+            <span class="dots"></span>
+            <span *ngIf="(myData?.work.length !== i+1)" class="v-lines"></span>
+        </div>
+        <div></div>
+    </div>
+</ng-template>
+<ng-template #work>
+    <div class="grid-div work-div" *ngFor="let work of myData?.work; let i = index" [id]="'work'+(i+1)">
+        <div></div>
+        <div>
+            <span class="dots"></span>
+            <span *ngIf="(myData?.work.length !== i+1)" class="v-lines"></span>
+        </div>
+        <div>
+            <h3>
+                {{work?.role}}
+            </h3>
+            <span class="med-col">{{work?.firm}}</span>
+            <div class="med-col">
+                {{work?.start_end}}
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #siteInfo>
+    <div class="site-info-d">
+        <div class="site-info-i">
+            <div class="infos">
+                <span>Built with Angular</span>
+                <span>Designed in SCSS</span>
+                <span>Icons by Font Awesome</span>
+                <span>Hosted on Firebase</span>
+                <span>By {{myData?.your_name}}</span>
+                <span>with &nbsp;<i class="fa-solid fa-heart"></i></span>
+            </div>
+        </div>
+        <i class="fa-solid fa-circle-info"></i>
+    </div>
+</ng-template>

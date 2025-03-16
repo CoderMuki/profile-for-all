@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+html, body { height: 100%; scroll-behavior: smooth;}
+body {
+    margin: 0;
+    background-color: var(--main-Bg);
+}
+:root {
+    --font-family: 'Poppins', sans-serif;
+    --main-Bg: hsl(193, 29%, 16%);
+    --lightFont: #fff;
+    --mediumFont: hsl(193,8%,75%,1);
+    --darkFont: #1b1e26;
+    --black: black;
+    --highlight-bg: rgb(127 255 212 / 80%);
+    --secondary: #f64c72;
+    --grad1: #36cfd9;
+    --secGrad1: linear-gradient(19deg, #f64c72 0%, #ef7d96 100%);
+    --grad2: #36cfd9;
+    --grad3: #37494b;
+    --white: #ffffff;
+    --secgrad2: linear-gradient(270deg, #eb496c 0%,  #f64c72 100%);
+    --scroll-bar-color: #1cc5d4;
+    --scroll-thumb-color: #0d0f57;
+    --darkbgview: #1b1e268f;
+    --mb-menu-bg: #488d8c;
+    --red: red;
+    --glass1: rgba(52, 139, 149, 0.3);
+    --glass2: rgba(37, 230, 252, 0.3);
+    --gloss-icon: rgba(37, 230, 252, 0.28);
+    --auth: 4D756B696C616E2053;
+}
+
+body.light-theme{
+
+        --main-Bg: #c5f7fb;
+        --lightFont: #000000;
+        --mediumFont: hsl(189,38%,20%,1);
+        --darkFont: #aee7f0;
+        --grad1: #56ebf5;
+        --grad2: hsl(193, 29%, 16%);
+        --grad3: hsl(193, 26%, 24%);
+
+}
+
+::-webkit-scrollbar{
+    width: .60rem;
+    background-color: var(--scroll-bar-color);
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--darkbgview);
+    border-radius: .5rem;
+}
+
+.med-col{
+    color: var(--mediumFont);
+}
+
+.mgb-1-5 {
+    margin-bottom: 1.5em !important;
+}

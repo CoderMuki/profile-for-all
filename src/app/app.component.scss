@@ -1,0 +1,81 @@
+.header {
+    height: 3em;
+    width: 100%;
+    background-color: var(--grad3);
+    position: fixed;
+    z-index: 2;
+
+    div {
+        display: flex;
+        width: 90%;
+        margin: 10px auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-weight: 600;
+        justify-content: center;
+        gap: 2em;
+        font-family: var(--font-family);
+        cursor: pointer;
+
+        span {
+            margin-right: 10px;
+            color: var(--white);
+        }
+
+        span:hover {
+            color: var(--grad1);
+        }
+    }
+}
+
+.mob-header {
+    height: 2em;
+    width: 2.5em;
+    background-color: var(--mb-menu-bg);
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .menus {
+        position: fixed;
+        color: var(--white);
+    }
+
+    .submenus {
+        position: relative;
+        top: 5em;
+        left: 5em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        color: var(--white);
+        font-weight: 600;
+        font-family: var(--font-family);
+        background-color: var(--grad3);
+
+        span {
+            text-align: center;
+            margin: 0 1em 0 1em;
+        }
+
+        span:last-child {
+            margin-bottom: 0.6em;
+        }
+
+        span:first-child {
+            margin-top: 0.6em;
+        }
+    }
+}
+
+@media screen and (max-width: 969px) {
+    .mob-header {
+        background-color: var(--grad1);
+
+        .menus {
+            color: var(--lightFont);
+        }
+    }
+}
