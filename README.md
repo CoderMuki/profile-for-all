@@ -8,6 +8,8 @@
 
 ### How does the output look?
 
+[How the project looks initially?](https://online-profile-template.web.app/)
+
 [Authors profile](https://mukilans-profile.web.app/) website at the time of release
 
 ## How to run the project locally?
