@@ -1,11 +1,11 @@
-<div class="main-div">
-    <div class="switch" (click)="changetheme()">
+<div class="main-div">  <!--main-div contains the whole profile except the Navigation bar-->
+    <div class="switch" (click)="changetheme()"> <!--Changes the stylesheet from light to dark and vice-versa-->
         <img *ngIf="offBulb" class="bulb" src="../../assets/icons/off-bulb.svg" alt="theme_switch_dark">
         <img *ngIf="!offBulb" class="bulb" src="../../assets/icons/on-bulb.svg" alt="theme_switch_bright">
     </div>
-    <div id="home"></div>
+    <div id="home"></div> <!--id to scroll to home-->
     <div class="image-container">
-        <div class="my-image">
+        <div class="my-image"> <!--div containing the profile image in css as background-->
         </div>
         <div class="side-out1 sides">
             <div>
@@ -19,18 +19,18 @@
         </div>
         <div class="side-out3 sides">
             <div>
-                <p>{{this.expShort()}} Yrs</p>
+                <p>{{this.expShort()}} Yrs</p> <!--short depiction of work experience-->
             </div>
         </div>
     </div>
     <div id=nameDiv class="name-div">
         <p class="name">{{myData?.your_name}}</p>
     </div>
-    <div id="about"></div>
+    <div id="about"></div> <!--id to scroll to about-->
     <div class="about-div">
         <div class="about-text">
             <h2>About Me</h2>
-            <p class="">{{aboutWithExp()}}</p>
+            <p>{{aboutWithExp()}}</p> <!-- your about data is shown and replaces '<$exp_long$>' in about from data.json with your experience in years and month-->
         </div>
     </div>
     <div class="obj-div">
@@ -39,29 +39,29 @@
             <p>{{myData?.objective}}</p>
         </div>
     </div>
-    <div id="skills"></div>
+    <div id="skills"></div> <!--id to scroll to skills-->
     <div class="skills-div">
         <div id="skills-header">
             <h2>Skills</h2>
         </div>
         <div class="skills-body">
-            <div class="skl-body-main mgb-1-5" *ngFor="let skill of myData?.skills; let i = index">
+            <div class="skl-body-main mgb-1-5" *ngFor="let skill of myData?.skills; let i = index"> <!--Loop to list all your skills in array from data.json-->
                 <span>
-                    <p>{{returnKey(skill)}}</p>
+                    <p>{{returnKey(skill)}}</p> <!--Header of each skill category-->
                     <p><img id="head-icons2" [src]="imageData?.skills?.[i]" alt="skill icon"></p>
                 </span>
-                <div class="chips">
+                <div class="chips"> <!--List of your skills under a each category-->
                     <div class="chip" *ngFor="let skillVal of returnValue(skill)">{{skillVal}}</div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="exp"></div>
+    <div id="exp"></div> <!--id to scroll to experience-->
     <div class="experience-div">
         <div id="exp-header">
             <h2>Experience</h2>
         </div>
-        <div class="exp-body">
+        <div class="exp-body"> <!--toggle div to show -->
             <h3 class="education" (click)="showEdu=true"><img id="grad-cap" src="../../assets/icons/grad-cap.svg"><span
                     [ngClass]="showEdu ? 'exp-select' : ''">Education</span>
             </h3>
@@ -70,7 +70,7 @@
             </h3>
         </div>
         <div class="exp-details">
-            <ng-container *ngIf="showEdu; then education else work"></ng-container>
+            <ng-container *ngIf="showEdu; then education else work"></ng-container> <!--Template container to toggle between "Education" and "Work" templates-->
         </div>
     </div>
     <div class="projects-div">
@@ -79,21 +79,21 @@
         </div>
     </div>
     <div class="projects-div">
-        <div class="proj-body" *ngFor="let project of myData?.projects">
+        <div class="proj-body" *ngFor="let project of myData?.projects"> <!--Loop to list projects and project highlights from data.json-->
             <p id="proj-name">{{project?.name}} &nbsp;<i class="fa fa-external-link-square"
                     (click)="urlOpen(project?.url)"></i></p>
             <ul>
-                <li *ngFor="let highlight of project?.highlights">{{highlight}}</li>
+                <li *ngFor="let highlight of project?.highlights">{{highlight}}</li> <!--List of each project highlights-->
             </ul>
         </div>
     </div>
-    <div id="contact"></div>
+    <div id="contact"></div> <!--id to scroll to contact info-->
     <div class="contact-div">
         <div id="cont-header">
             <h2>Contact</h2>
         </div>
         <div class="contact-body">
-            <div class="con-types" *ngFor="let social of myData?.socials; let i = index">
+            <div class="con-types" *ngFor="let social of myData?.socials; let i = index"> <!--Loop to show list of your social handles-->
                 <div class="cont1" (click)="urlOpen(social?.url)">
                     <div class="icon"><i [class]="social?.icon"></i></div>
                     <div class="contact">
@@ -107,24 +107,24 @@
     </div>
     <div class="footer-div">
         <div class="footer-1">
-            <div class="foot-name">
+            <div class="foot-name"> <!--Footer div to show name and other socials-->
                 <span>{{myData?.footer?.name}}</span>
                 <p>{{myData?.footer?.position}}</p>
             </div>
             <div class="socials">
-                <div (click)="urlOpen(oSocial?.url)" *ngFor="let oSocial of myData?.footer?.socials"><i
-                        [class]="oSocial?.icon"></i></div>
+                <div (click)="urlOpen(oSocial?.url)" *ngFor="let oSocial of myData?.footer?.socials"> <!--Loop for other socical handles-->
+                    <i [class]="oSocial?.icon"></i></div>
             </div>
         </div>
         <div class="footer-1-5">
             <p id="checkout">Also Check out :</p>
-            <div class="stackoverflow" (click)="urlOpen(myData?.footer?.stack_overflow)">
+            <div class="stackoverflow" (click)="urlOpen(myData?.footer?.stack_overflow)"> <!--your StackOverflow page-->
                 <div>
                     <i class="fa-brands fa-stack-overflow"></i>
                     <p>Stack Overflow</p>
                 </div>
             </div>
-            <div class="github" (click)="urlOpen(myData?.footer?.github)">
+            <div class="github" (click)="urlOpen(myData?.footer?.github)"> <!--your Github Page-->
                 <div>
                     <i class="fa-brands fa-github"></i>
                     <p>GitHub</p>
@@ -132,7 +132,7 @@
             </div>
         </div>
         <div class="footer-2">
-            <div><i class="fa-solid fa-copyright"></i>
+            <div><i class="fa-solid fa-copyright"></i> <!--Your name in copyright tag-->
                 <p>{{myData?.footer?.name}}. All rights reserved. {{myData?.last_updated}}</p>
             </div>
         </div>
@@ -141,12 +141,14 @@
             <i class="fa-solid fa-circle-info"></i>
             <ng-container *ngIf="showsiteInfo; then siteInfo"></ng-container>
         </div>
+        <ng-container *ngIf="!live; then authorTags"></ng-container> <!--Author Tag : Removed when "live" set to "true"-->
     </div>
+
 </div>
 
 
 
-<ng-template #education>
+<ng-template #education> <!--Template for Education details-->
     <div class="grid-div edu-div" *ngFor="let education of myData?.education; let i = index" [id]="'education'+(i+1)">
         <div>
             <h3>
@@ -164,7 +166,7 @@
         <div></div>
     </div>
 </ng-template>
-<ng-template #work>
+<ng-template #work>  <!--Template for Work details-->
     <div class="grid-div work-div" *ngFor="let work of myData?.work; let i = index" [id]="'work'+(i+1)">
         <div></div>
         <div>
@@ -183,7 +185,7 @@
     </div>
 </ng-template>
 
-<ng-template #siteInfo>
+<ng-template #siteInfo> <!--Info tag at the bottom of profile to show site credits on hover or click-->
     <div class="site-info-d">
         <div class="site-info-i">
             <div class="infos">
@@ -196,5 +198,22 @@
             </div>
         </div>
         <i class="fa-solid fa-circle-info"></i>
+    </div>
+</ng-template>
+
+<ng-template #authorTags>
+    <div class="sample-site" (click)="urlOpen('https://mukilans-profile.web.app/')"> <!--Author tag to show sample output-->
+        <span>click to see how the sample output looks</span>
+    </div>
+    <div class="make-own" (click)="urlOpen('https://github.com/CoderMuki/profile-for-all')"> <!--Author tag to route to github code-->
+        <span> <-- See guide and get code to make your own website --> </span>
+    </div>
+    <div class="author"> <!--Author Info-->
+        <span>Author: </span>
+        <a href="https://stackoverflow.com/users/21735865/mukilan">
+            <img [src]="'https://stackoverflow.com/users/flair/21735865.png?theme='+(offBulb ? 'dark':'default')" width="208" height="58"
+            alt="Mukilan's Profile at Stack Overflow"
+            title="Mukilan's Profile at Stack Overflow">
+        </a>
     </div>
 </ng-template>

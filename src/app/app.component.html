@@ -1,4 +1,4 @@
-<div *ngIf="!mobHeader" class="header">
+<div *ngIf="!mobHeader" class="header"> <!--Nav bar for big screen-->
     <div>
         <span (click)="scrollView('home')">Home</span>
         <span (click)="scrollView('about')">About</span>
@@ -7,13 +7,13 @@
         <span (click)="scrollView('contact')">Contact</span>
     </div>
 </div>
-<div *ngIf="mobHeader" class="mob-header">
+<div *ngIf="mobHeader" class="mob-header"> <!--Nav bar for smaller screen sizes-->
     <div class="menus" (click)="showMenu = !showMenu"><i class="fa-solid fa-bars"></i></div>
     <ng-container *ngIf="showMenu; then menu"></ng-container>
 </div>
-<app-profile-home (showDiv)="checkDiv($event)"></app-profile-home>
+<app-profile-home (showDiv)="checkDiv($event)"></app-profile-home> <!--main profile div-->
 
-<ng-template #menu>
+<ng-template #menu> <!--mobile nav menu-->
     <div *ngIf="showMenu" class="submenus">
         <span (click)="scrollView('home')">Home</span>
         <span (click)="scrollView('about')">About</span>

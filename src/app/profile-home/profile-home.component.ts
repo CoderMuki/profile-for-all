@@ -9,25 +9,31 @@ import { forkJoin } from 'rxjs';
 })
 export class ProfileHomeComponent implements OnInit {
 
-  showEdu = false;
-  offBulb = true;
-  showsiteInfo = false;
-  @Output() showDiv = new EventEmitter<any>();
-  public myData: any;
-  public imageData: any;
+  live = false; //! set this to true to remove console logs and author tags
 
-  constructor(private http: HttpClient) {
+  showEdu = false; // boolean to toggle education and work details
+  offBulb = true; // boolean to toggle between themes
+  showsiteInfo = false; // boolean for site information from "i" icon
+  @Output() showDiv = new EventEmitter<any>(); // event emitter for scroll changes
+  public myData: any; // data from data.json to be patched
+  public imageData: any; // data from imageData.json to be patched
+
+  constructor(private http: HttpClient) { //? declared http client to get data from asset via internal api call
+
+    //? forkjoined API calls to get image and your data from json
     forkJoin([this.http.get('assets/data.json'), this.http.get('assets/imagedata.json')]).subscribe(res => {
       this.myData = res[0];
       this.imageData = res[1];
-      console.log(this.myData) //! comment when going to production 
-      console.log(this.imageData) //! comment when going to production
+      if(!this.live) { //? consoles for non live to view in browser dev tools
+        console.log(this.myData);
+        console.log(this.imageData);
+      }
     })
   }
 
   ngOnInit(): void {
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => { // scroll event listener
       let isEl = document.getElementById('nameDiv');
       var rect = isEl?.getBoundingClientRect();
       if (rect) {
@@ -36,7 +42,7 @@ export class ProfileHomeComponent implements OnInit {
         this.showDiv.emit(!ifThere);
       }
     })
-    const body = document.getElementsByTagName('body')[0];
+    const body = document.getElementsByTagName('body')[0]; // get theme data on reload or page load
     if (!!window.sessionStorage.getItem('theme')) {
       const theme = window.sessionStorage.getItem('theme');
       if (theme == 'light') {
@@ -56,13 +62,13 @@ export class ProfileHomeComponent implements OnInit {
 
 
 
-  urlOpen(url: any) {
+  urlOpen(url: any) { // common function to open URLs in new tab
     if (!!url) {
       window.open(url, '_blank');
     }
   }
 
-  changetheme() {
+  changetheme() { // theme change function
     const body = document.getElementsByTagName('body')[0];
     if (body.classList.contains('light-theme')) {
       body.classList.remove('light-theme');
@@ -75,12 +81,12 @@ export class ProfileHomeComponent implements OnInit {
     }
   }
 
-  copy(mail: any) {
+  copy(mail: any) { // common copy funtion
     let msg = navigator.clipboard.writeText(mail);
     alert(`Copied to clipboard`)
   }
 
-  expConversion() {
+  expConversion() { // function to calculate years and month of experience
     const today: any = new Date();
     const startDate: any = new Date(this.myData?.exp_start_date); //? Stupid MM-DD-YYYY format
     const diffTime: any = Math.abs(today - startDate);
@@ -90,28 +96,28 @@ export class ProfileHomeComponent implements OnInit {
     return { years, months }
   }
 
-  expShort() {
+  expShort() { // shorter version of experience
     const exp = this.expConversion();
     return `${exp.years}.${exp.months}+`
   }
-  expLong() {
+  expLong() { // longer version of experience
     const exp = this.expConversion();
     var yearsDisplay = exp.years > 0 ? exp.years + (exp.years == 1 ? " year " : " years ") : "";
     var monthsDisplay = exp.months > 0 ? exp.months + (exp.months == 1 ? " month " : " months ") : "";
     return yearsDisplay + monthsDisplay;
   }
 
-  aboutWithExp() {
+  aboutWithExp() { // replace funtion for experience tag in data.json
     let about = this.myData?.about_me?.replace('<$exp_long$>', this.expLong());
     return about;
   }
 
-  returnKey(obj: any) {
+  returnKey(obj: any) { // common function to return Object Keys
     let [objKey] = Object?.keys(obj);
     return objKey;
   }
 
-  returnValue(object: any): [] {
+  returnValue(object: any): [] { // common function to return Object values
     let [objVal]: any[] = Object?.values(object);
     return objVal;
   }

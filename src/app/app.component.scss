@@ -1,4 +1,4 @@
-.header {
+.header { // Nav bar header
     height: 3em;
     width: 100%;
     background-color: var(--grad3);
@@ -28,7 +28,7 @@
     }
 }
 
-.mob-header {
+.mob-header { // Mobile nav bar
     height: 2em;
     width: 2.5em;
     background-color: var(--mb-menu-bg);
@@ -70,7 +70,7 @@
     }
 }
 
-@media screen and (max-width: 969px) {
+@media screen and (max-width: 969px) { // media query for mobile nav bar header
     .mob-header {
         background-color: var(--grad1);
 
