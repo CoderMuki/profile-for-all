@@ -1,14 +1,14 @@
 .main-div {
     min-height: 100%;
 
-    .switch {
+    .switch { // theme toggle button
         height: 2.5em;
         width: 2.5em;
         z-index: 3;
         right: 0;
         position: fixed;
 
-        .bulb {
+        .bulb { // theme toggle icon
             max-width: 2.3em;
             transform: rotate(230deg);
             position: fixed;
@@ -17,7 +17,7 @@
         }
     }
 
-    .image-container {
+    .image-container { // container for image name and rotating leaves
         width: 190px;
         height: 190px;
         border-radius: 50px;
@@ -49,7 +49,7 @@
             }
         }
 
-        .side-out1 {
+        .side-out1 { // leaf 1 with job title
             div {
                 translate: (10% -15%);
             }
@@ -57,7 +57,7 @@
             transition: transform 0.8s ease-in;
         }
 
-        .side-out2 {
+        .side-out2 { // leaf 2 with highlights
             div {
                 translate: (15% -15%);
             }
@@ -65,7 +65,7 @@
             transition: transform 1s ease-in;
         }
 
-        .side-out3 {
+        .side-out3 { // leaf 3 with experience
             div {
                 translate: (25% -15%);
             }
@@ -73,20 +73,20 @@
             transition: transform 1.3s ease-in;
         }
 
-        .my-image {
+        .my-image { // class to show your image
             margin: auto;
             width: 150px;
             height: 160px;
             border-radius: 50px;
             transform: rotate(-25deg);
-            background-image: url(../../assets/images/profileicon.jpg);
+            background-image: url(../../assets/images/profileicon.jpg); //todo: change to your photo's path 
             background-repeat: no-repeat;
             background-size: cover;
             transition: transform 1s ease-in-out;
         }
     }
 
-    .image-container:hover {
+    .image-container:hover { // hover action for leaves
         transform: rotate(180deg);
 
         .sides {
@@ -120,7 +120,7 @@
         }
     }
 
-    .name-div {
+    .name-div { // name below image
         width: 15em;
         height: 3em;
         margin: auto;
@@ -139,7 +139,7 @@
         }
     }
 
-    .about-div {
+    .about-div { // about 
         width: 80vw;
         height: fit-content;
         margin: 4em auto;
@@ -166,24 +166,11 @@
                 font-weight: 500;
                 margin-top: 1em;
                 text-align: justify;
-
-                #ang {
-                    max-width: 1.2em;
-                    position: relative;
-                    top: 0.29em;
-                }
-
-                #node {
-                    max-width: 1em;
-                    position: relative;
-                    top: 0.2em;
-                    margin-left: 0.1em;
-                }
             }
         }
     }
 
-    .obj-div {
+    .obj-div { // objective
         width: 80vw;
         height: fit-content;
         margin: 4em auto;
@@ -206,7 +193,7 @@
         }
     }
 
-    .skills-div {
+    .skills-div { // skills
         width: 80vw;
         margin: 4em auto;
         height: fit-content;
@@ -256,7 +243,7 @@
                     }
                 }
 
-                .chips {
+                .chips { // skill chips array
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
@@ -282,7 +269,7 @@
         }
     }
 
-    .experience-div {
+    .experience-div { // experience
         width: 80vw;
         margin: 4em auto;
         height: fit-content;
@@ -333,7 +320,7 @@
                 }
             }
 
-            .exp-select {
+            .exp-select { // highlight selected
                 background-color: var(--grad1);
                 border-radius: 5px;
                 width: fit-content;
@@ -344,7 +331,7 @@
         .exp-details {
             height: fit-content;
 
-            .grid-div {
+            .grid-div { // flow details of experience
                 display: flex;
                 justify-content: space-between;
 
@@ -380,13 +367,13 @@
                 }
             }
 
-            .grid-div:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-
             .grid-div:nth-child(odd) {
                 flex-direction: row;
             }
+            
+            .grid-div:nth-child(even) {
+                flex-direction: row-reverse;
+            }            
 
             .edu-div:nth-child(odd) {
                 text-align: end;
@@ -398,7 +385,7 @@
         }
     }
 
-    .projects-div {
+    .projects-div { // projects
         width: 80vw;
         margin: 0 auto;
         height: fit-content;
@@ -429,7 +416,7 @@
         }
     }
 
-    .contact-div {
+    .contact-div { // contacts
         width: 80vw;
         margin: 4em auto;
         display: flex;
@@ -504,7 +491,7 @@
         }
     }
 
-    .footer-div {
+    .footer-div { // footer
         height: fit-content;
         background-color: var(--grad3);
 
@@ -614,7 +601,7 @@
             }
         }
 
-        .site-info {
+        .site-info { // site build information
             width: 95%;
             height: 1em;
             text-align: end;
@@ -660,7 +647,7 @@
                         top: 1.5em;
 
                         .fa-heart {
-                            font-size: 0.8em;
+                            font-size: 1em;
                             color: var(--red);
                             animation: blinker 1s linear infinite;
                         }
@@ -669,32 +656,73 @@
             }
 
         }
+
+        .sample-site { // Author tags
+            text-align: center;
+            cursor: pointer;
+            span {
+                margin: auto;
+                padding: 20px 0 10px 0;
+                font-size: 0.9em;
+                font-family: var(--font-family);
+                color: var(--white);
+            }
+        }
+
+        .make-own {
+            text-align: center;
+            cursor: pointer;
+            span {
+                margin: 20px auto;
+                font-size: 1em;
+                font-family: var(--font-family);
+                animation: blinker 1s linear infinite;
+                color: var(--white);
+            }
+        }
+
+        .author {
+            font-family: var(--font-family);
+            font-size: 0.75em;
+            font-weight: 600;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 10px;
+        }
     }
 }
 
-@keyframes blinker {
+@keyframes blinker { // blinking heart animation
     0% {
         opacity: 1;
+        transform: scale(1);
     }
 
     25% {
         opacity: 0.65;
+        transform: scale(0.8);
     }
 
     50% {
         opacity: 0.3;
+        transform: scale(0.7);
     }
 
     75% {
         opacity: 0.65;
+        transform: scale(0.8);
     }
 
     100% {
         opacity: 1;
+        transform: scale(1);
     }
 }
 
-@media screen and (max-width: 969px) {
+@media screen and (max-width: 969px) { // Media query for smaller devices
     .main-div {
         .image-container:hover {
             .sides {
