@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { forkJoin } from 'rxjs';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile-home',
@@ -18,7 +19,9 @@ export class ProfileHomeComponent implements OnInit {
   public myData: any; // data from data.json to be patched
   public imageData: any; // data from imageData.json to be patched
 
-  constructor(private http: HttpClient) { //? declared http client to get data from asset via internal api call
+  constructor(private http: HttpClient, private metaTag: Meta) { //? declared http client to get data from asset via internal api call
+
+    this.metaTag.addTag({ name: 'title' , content: 'Profile template, DIY Profile, Online Resume, Build your own website, Free profile template'}) // SEO optimization
 
     //? forkjoined API calls to get image and your data from json
     forkJoin([this.http.get('assets/data.json'), this.http.get('assets/imagedata.json')]).subscribe(res => {
