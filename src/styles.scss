@@ -1,37 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap'); //Poppind Font from google API
 html, body { height: 100%; scroll-behavior: smooth;}
 body {
     margin: 0;
     background-color: var(--main-Bg);
 }
-:root {
-    --font-family: 'Poppins', sans-serif;
-    --main-Bg: hsl(193, 29%, 16%);
-    --lightFont: #fff;
-    --mediumFont: hsl(193,8%,75%,1);
-    --darkFont: #1b1e26;
+:root { // global variables
+    --font-family: 'Poppins', sans-serif; // font-family
+    --main-Bg: hsl(193, 29%, 16%); // body background
+    --lightFont: #fff; // text
+    --mediumFont: hsl(193,8%,75%,1); // lighter font for paragraphs
+    --darkFont: #1b1e26; // contrast color 
     --black: black;
-    --highlight-bg: rgb(127 255 212 / 80%);
-    --secondary: #f64c72;
-    --grad1: #36cfd9;
-    --secGrad1: linear-gradient(19deg, #f64c72 0%, #ef7d96 100%);
-    --grad2: #36cfd9;
-    --grad3: #37494b;
+    --grad1: #36cfd9; // header highlight
+    --grad2: #36cfd9; // image-container background
+    --grad3: #37494b; // header n footer background
     --white: #ffffff;
-    --secgrad2: linear-gradient(270deg, #eb496c 0%,  #f64c72 100%);
     --scroll-bar-color: #1cc5d4;
-    --scroll-thumb-color: #0d0f57;
-    --darkbgview: #1b1e268f;
-    --mb-menu-bg: #488d8c;
+    --darkbgview: #1b1e268f; // scroll bar thumb
+    --mb-menu-bg: #488d8c; // mobile header background
     --red: red;
-    --glass1: rgba(52, 139, 149, 0.3);
-    --glass2: rgba(37, 230, 252, 0.3);
-    --gloss-icon: rgba(37, 230, 252, 0.28);
-    --auth: 4D756B696C616E2053;
+    --glass1: rgba(52, 139, 149, 0.3); // site-info background
+    --glass2: rgba(37, 230, 252, 0.3);  // site-info background
+    --gloss-icon: rgba(37, 230, 252, 0.28); // i icon background image
 }
 
-body.light-theme{
-
+body.light-theme{ // light theme
         --main-Bg: #c5f7fb;
         --lightFont: #000000;
         --mediumFont: hsl(189,38%,20%,1);
@@ -39,15 +32,15 @@ body.light-theme{
         --grad1: #56ebf5;
         --grad2: hsl(193, 29%, 16%);
         --grad3: hsl(193, 26%, 24%);
-
+        --auth: 4D756B696C616E2053;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar{ // scrollbar background
     width: .60rem;
     background-color: var(--scroll-bar-color);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb{ // scrollbar
     background-color: var(--darkbgview);
     border-radius: .5rem;
 }
